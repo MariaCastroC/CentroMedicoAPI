@@ -4,6 +4,7 @@
     {
 
         public int Idhistoria { get; set; }
+        public int Idmedico { get; set; }
         public int Idpaciente { get; set; }
         public DateTime Fechaingreso { get; set; }
         public required string Estadohistoria { get; set; }
