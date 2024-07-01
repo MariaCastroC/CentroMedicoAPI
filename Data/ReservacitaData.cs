@@ -73,10 +73,10 @@ namespace CentroMedicoAPI.Data
                 {
                     oListaReservacita.Add(new Reservacita()
                     {
-                        Idcita = dr["idcita"].ToString(),
-                        Idpaciente = dr["idpaciente"].ToString(),
-                        Idhorario = Cdr["idhorario"].ToString(),
-                        Idconsultorio = dr["idmedico"].ToString(),
+                        Idcita = Convert.ToInt32(dr["IdCita"]),
+                        Idpaciente = Convert.ToInt32(dr["IdPaciente"]),
+                        Idhorario = Convert.ToInt32(dr["Idhorario"]),
+                        Idconsultorio = Convert.ToInt32(dr["IdConsultorio"]),
                         Fechaingreso = Convert.ToDateTime(dr["Fechaingreso"].ToString()),
                         Estadocita = dr["Estadocita"].ToString()
                         
@@ -93,7 +93,7 @@ namespace CentroMedicoAPI.Data
         }
         public static List<Reservacita> Consultar(string id)
         {
-            List<Reservacita> oListReservacita = new List<Reservacita>();
+            List<Reservacita> oListaReservacita = new List<Reservacita>();
             ConexionBD objEst = new ConexionBD();
             string sentencia;
             sentencia = "EXECUTE sp_Consultar '" + id + "'";
@@ -105,10 +105,10 @@ namespace CentroMedicoAPI.Data
                     oListaReservacita.Add(new Reservacita()
 
                     {
-                        Idcita = dr["idcita"].ToString(),
-                        Idpaciente = dr["idpaciente"].ToString(),
-                        Idhorario = Cdr["idhorario"].ToString(),
-                        Idconsultorio = dr["idmedico"].ToString(),
+                        Idcita = Convert.ToInt32(dr["IdCita"]),
+                        Idpaciente = Convert.ToInt32(dr["IdPaciente"]),
+                        Idhorario = Convert.ToInt32(dr["Idhorario"]),
+                        Idconsultorio = Convert.ToInt32(dr["IdConsultorio"]),
                         Fechaingreso = Convert.ToDateTime(dr["Fechaingreso"].ToString()),
                         Estadocita = dr["Estadocita"].ToString()
                     });

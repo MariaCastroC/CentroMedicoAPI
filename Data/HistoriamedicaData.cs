@@ -1,4 +1,5 @@
 ﻿using CentroMedicoAPI.Models;
+using System;
 using System.Data.SqlClient;
 
 namespace CentroMedicoAPI.Data
@@ -61,7 +62,7 @@ namespace CentroMedicoAPI.Data
         }
         public static List<Historiamedica> Listar()
         {
-            List<Historiamedica> oListarHistoriamedica = new List<Historiamedica>();
+            List<Historiamedica> oListaHistoriamedica = new List<Historiamedica>();
             ConexionBD objEst = new ConexionBD();
             string sentencia;
             sentencia = "EXECUTE sp_listar";
@@ -71,7 +72,7 @@ namespace CentroMedicoAPI.Data
 
                 while (dr.Read())
                 {
-                    oListaReservacita.Add(new Usuario()
+                    oListaHistoriamedica.Add(new Historiamedica()
                     {
                         Idhistoria = Convert.ToInt32(dr["Idhistoria"]),
                         Idmedico = Convert.ToInt32(dr["Idmedico"]),
@@ -83,16 +84,16 @@ namespace CentroMedicoAPI.Data
 
                     });
                 }
-                return oListaReservacita;
+                return oListaHistoriamedica;
             }
             else
             {
-                return oListaReservacita;
+                return oListaHistoriamedica;
             }
         }
         public static List<Historiamedica> Consultar(string id)
         {
-            List<Historiamedica> oListHistoriamedica = new List<Historiamedica>();
+            List<Historiamedica> oListaHistoriamedica = new List<Historiamedica>();
             ConexionBD objEst = new ConexionBD();
             string sentencia;
             sentencia = "EXECUTE sp_Consultar '" + id + "'";

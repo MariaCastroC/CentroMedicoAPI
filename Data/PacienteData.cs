@@ -93,7 +93,7 @@ namespace CentroMedicoAPI.Data
          }
         public static List<Paciente> Consultar(string id)
         {
-            List<Paciente> oListPaciente = new List<Paciente>();
+            List<Paciente> oListaPaciente = new List<Paciente>();
             ConexionBD objEst = new ConexionBD();
             string sentencia;
             sentencia = "EXECUTE sp_Consultar '" + id + "'";
@@ -102,7 +102,7 @@ namespace CentroMedicoAPI.Data
                 SqlDataReader dr = objEst.Reader;
                 while (dr.Read())
                 {
-                    oListaHistoriamedica.Add(new Paciente()
+                    oListaPaciente.Add(new Paciente()
                     {
                         Idpaciente = Convert.ToInt32(dr["Idpaciente"]),
                         Nombrepaciente = dr["Nombrepaciente"].ToString(),

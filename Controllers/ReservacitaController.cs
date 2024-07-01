@@ -1,23 +1,17 @@
 ﻿using CentroMedicoAPI.Data;
 using CentroMedicoAPI.Models;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
+
 
 
 namespace CentroMedicoAPI.Controllers
 {
-    [Route("api/[controller]")]
-    [ApiController]
+   
     public class ReservacitaController : ControllerBase
     {
         
         // GET api/<controller>
- public List<Reservacita> Get()
+        public List<Reservacita> Get()
         {
             return ReservacitaData.Listar();
         }
